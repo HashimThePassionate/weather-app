@@ -1,6 +1,7 @@
 # Weather App
 
 This Weather App fetches and displays weather information based on the city name entered by the user. It uses the OpenWeatherMap API to get the weather data.
+**try weather app** [Weather app](https://hashimthepassionate.github.io/weather-app/)
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
