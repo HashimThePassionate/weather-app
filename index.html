@@ -8,44 +8,70 @@
     <title>Weather</title>
 </head>
 <body>
-    <div class="contaniner">
-        <div class="search-box">
+<div class="contaniner">
+        <!-- Search Box Section -->
+    <div class="search-box">
+            <!-- Icon for search box -->
             <i class='bx bx-world'></i>
+            <!-- Input field for location -->
             <input type="text" placeholder="Enter your location">
-            <button  class='bx bx-search-alt' ></button>
-        </div>
-    <div class="weather-box">
-        <div class="box">
-            <div class="info-weather">
-                <div class="weather">
-                    <img src="images/cloud.png">
-                    <p class="temperature">0<span>°C</span></p>
-                    <p class="description">Broken Clouds</p>
-                </div>
-            </div>
-            <div class="weather-details">
-                <div class="humidity">
-                    <i class='bx bx-water'></i>
-                    <div class="text">
-                        <div class="info-humidity">
-                            <span>0%</span>
-                        </div>
-                        <p>Humidity</p>
+            <!-- Search button -->
+            <button class='bx bx-search-alt'></button>
+    
+    <!-- Search Box Div Ended -->
+    </div>
+
+        <!-- Weather Box Section -->
+        <div class="weather-box">
+            <div class="box">
+                <!-- Weather Information Section -->
+                <div class="info-weather">
+                    <div class="weather">
+                        <!-- Weather icon -->
+                        <img src="images/cloud.png">
+                        <!-- Temperature display -->
+                        <p class="temperature">0<span>°C</span></p>
+                        <!-- Weather description -->
+                        <p class="description">Broken Clouds</p>
                     </div>
                 </div>
-                <div class="wind">
-                    <i class='bx bx-wind'></i>
-                    <div class="text">
-                        <div class="info-wind">
-                            <span>0km/h</span>
+
+                <!-- Weather Details Section -->
+                <div class="weather-details">
+                    <!-- Humidity Information -->
+                    <div class="humidity">
+                        <!-- Humidity icon -->
+                        <i class='bx bx-water'></i>
+                        <div class="text">
+                            <div class="info-humidity">
+                                <!-- Humidity value -->
+                                <span>0%</span>
+                            </div>
+                            <!-- Label for humidity -->
+                            <p>Humidity</p>
                         </div>
-                        <p>Wind Speed</p>
+                    </div>
+
+                    <!-- Wind Speed Information -->
+                    <div class="wind">
+                        <!-- Wind speed icon -->
+                        <i class='bx bx-wind'></i>
+                        <div class="text">
+                            <div class="info-wind">
+                                <!-- Wind speed value -->
+                                <span>0km/h</span>
+                            </div>
+                            <!-- Label for wind speed -->
+                            <p>Wind Speed</p>
+                        </div>
                     </div>
                 </div>
             </div>
+
+        <!-- Weather Box section ended -->
         </div>
-    </div>
-    </div>
+<!-- container div ended -->
+</div>
     <script src="index.js"></script>
 </body>
 </html>
