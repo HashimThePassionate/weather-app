@@ -1,8 +1,22 @@
-const container = document.querySelector('.container');
-const search = document.querySelector('.search-box button');
-const weatherBox = document.querySelector('.weather-box');
-const weatherDetails = document.querySelector('.weather-details');
+let id = id => document.getElementById(id);
+let query = q => document.querySelector(q);
+let inputfield = id('location');
+const container = q('container');
+const search = q('.search-box button');
+const weatherBox = q('.weather-box');
+const weatherDetails = q('.weather-details');
 
+
+
+// Hide placeholder on focus
+inputfield.addEventListener('focus', () => {
+    inputfield.setAttribute('placeholder', '');
+});
+
+// Show placeholder back on blur
+inputfield.addEventListener('blur', () => {
+    inputfield.setAttribute('placeholder', 'Enter your location');
+});
 search.addEventListener('click', async () => {
     const APIKey = '2675a0482e5c8100dce84fc9f2ecfe88';
     const city = document.querySelector('.search-box input').value;
