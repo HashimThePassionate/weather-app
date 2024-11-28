@@ -63,12 +63,13 @@ body {
     font-size: 1.25rem;
     text-align: center;
     text-transform: uppercase;
-    padding: 0 50px; /* Added padding to prevent text overlap with icon */
+    padding: 0 50px; /* Added padding to prevent text overlap with icon and button */
 }
 
 .search-box input::placeholder {
     color: var(--color);
     font-weight: 400;
+    font-size: 1rem; /* Adjusted font size */
 }
 
 .search-box button {
@@ -192,6 +193,16 @@ body {
 
     .search-box input {
         font-size: 1.1rem;
+        padding: 0 40px; /* Reduced padding for smaller screens */
+    }
+
+    .search-box input::placeholder {
+        font-size: 0.9rem; /* Reduced placeholder font size */
+    }
+
+    .search-box i,
+    .search-box button {
+        font-size: 1.4rem;
     }
 
     .weather-box .temperature {
@@ -232,12 +243,16 @@ body {
 
     .search-box i,
     .search-box button {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .search-box input {
-        font-size: 1rem;
-        padding: 0 40px;
+        font-size: 0.9rem;
+        padding: 0 30px; /* Further reduced padding */
+    }
+
+    .search-box input::placeholder {
+        font-size: 0.8rem; /* Further reduced placeholder font size */
     }
 
     .weather-box img {
