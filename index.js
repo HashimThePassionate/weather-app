@@ -1,12 +1,10 @@
 let id = id => document.getElementById(id);
 let query = q => document.querySelector(q);
 let inputfield = id('location');
-const container = q('container');
-const search = q('.search-box button');
-const weatherBox = q('.weather-box');
-const weatherDetails = q('.weather-details');
-
-
+const container = query('.container');
+const search = query('.search-box button');
+const weatherBox = query('.weather-box');
+const weatherDetails = query('.weather-details');
 
 // Hide placeholder on focus
 inputfield.addEventListener('focus', () => {
@@ -17,24 +15,34 @@ inputfield.addEventListener('focus', () => {
 inputfield.addEventListener('blur', () => {
     inputfield.setAttribute('placeholder', 'Enter your location');
 });
+
+// Fetch weather data on search click
 search.addEventListener('click', async () => {
     const APIKey = '2675a0482e5c8100dce84fc9f2ecfe88';
-    const city = document.querySelector('.search-box input').value;
+    const city = inputfield.value.trim();
 
-    if (city === '') return;
+    if (!city) {
+        alert('Please enter a valid city name.');
+        return;
+    }
 
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            if (response.status === 404) {
+                throw new Error('City not found. Please try again.');
+            } else {
+                throw new Error('Failed to fetch weather data. Try again later.');
+            }
         }
+
         const json = await response.json();
 
-        const image = document.querySelector('.weather-box img');
-        const temperature = document.querySelector('.weather-box .temperature');
-        const description = document.querySelector('.weather-box .description');
-        const humidity = document.querySelector('.weather-details .humidity span');
-        const wind = document.querySelector('.weather-details .wind span');
+        const image = query('.weather-box img');
+        const temperature = query('.weather-box .temperature');
+        const description = query('.weather-box .description');
+        const humidity = query('.weather-details .humidity span');
+        const wind = query('.weather-details .wind span');
 
         const weatherImages = {
             Clear: 'images/clear.png',
@@ -47,22 +55,21 @@ search.addEventListener('click', async () => {
 
         if (json.weather && json.weather[0]) {
             const weatherMain = json.weather[0].main;
-            image.src = weatherImages[weatherMain] || 'images/cloud.png'; // Fallback image if condition not matched
-
+            image.src = weatherImages[weatherMain] || 'images/cloud.png'; // Fallback image
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
         } else {
-            // Handle cases where weather information is not available
+            // Clear data if no weather information is available
+            image.src = 'images/404.png';
             temperature.innerHTML = '';
-            description.innerHTML = 'No weather information available';
+            description.innerHTML = 'Weather data not available';
             humidity.innerHTML = '';
             wind.innerHTML = '';
-            image.src = 'images/404.png';
         }
     } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
-        // Handle errors gracefully here, maybe show an error message to the user
+        console.error('Error fetching weather data:', error.message);
+        alert(error.message); // Display error to the user
     }
 });
