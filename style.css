@@ -160,3 +160,37 @@ body{
     font-size: 14px ;
      font-weight: 500;
 }
+
+
+/* Custom Popup Style */
+.custom-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: var(--bg-color);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    color: var(--color);
+}
+
+.close-popup {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--color);
+    color: var(--bg-color);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}

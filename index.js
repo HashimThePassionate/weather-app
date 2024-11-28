@@ -16,13 +16,35 @@ inputfield.addEventListener('blur', () => {
     inputfield.setAttribute('placeholder', 'Enter your location');
 });
 
+// Function to create a custom popup
+function createPopup(message) {
+    // Create popup container
+    const popup = document.createElement('div');
+    popup.classList.add('custom-popup');
+    popup.innerHTML = `
+        <div class="popup-content">
+            <p>${message}</p>
+            <button class="close-popup">OK</button>
+        </div>
+    `;
+    
+    // Append to body
+    document.body.appendChild(popup);
+
+    // Close button action
+    const closeButton = popup.querySelector('.close-popup');
+    closeButton.addEventListener('click', () => {
+        document.body.removeChild(popup);
+    });
+}
+
 // Fetch weather data on search click
 search.addEventListener('click', async () => {
     const APIKey = '2675a0482e5c8100dce84fc9f2ecfe88';
     const city = inputfield.value.trim();
 
     if (!city) {
-        alert('Please enter a valid city name.');
+        createPopup('Please enter a valid city name.');
         return;
     }
 
@@ -70,6 +92,6 @@ search.addEventListener('click', async () => {
         }
     } catch (error) {
         console.error('Error fetching weather data:', error.message);
-        alert(error.message); // Display error to the user
+        createPopup(error.message); // Display custom popup with error message
     }
 });
