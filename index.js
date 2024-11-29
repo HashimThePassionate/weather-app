@@ -70,7 +70,7 @@ search.addEventListener('click', async () => {
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
-            wind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
+            wind.innerHTML = `${parseFloat(json.wind.speed)}km/h`;
         }
     } catch (error) {
         createPopup(error.message);
