@@ -1,25 +1,20 @@
 let id = id => document.getElementById(id);
-let query = q => document.querySelector(q);
-let inputfield = id('location');
-const container = query('.container');
-const search = query('.search-box button');
-const weatherBox = query('.weather-box');
-const weatherDetails = query('.weather-details');
+let q = q => document.querySelector(q);
+let inputField = id('location');
+let container = q('.container');
+let search = q('.search-box button');
+let weatherBox = q('.weather-box');
+let weatherDetails = q('.weather-details');
 
-// Hide placeholder on focus
-inputfield.addEventListener('focus', () => {
-    inputfield.setAttribute('placeholder', '');
+inputField.addEventListener('focus', () => {
+    inputField.setAttribute('placeholder', '');
+});
+inputField.addEventListener('blur', () => {
+    inputField.setAttribute('placeholder', 'Enter your location');
 });
 
-// Show placeholder back on blur
-inputfield.addEventListener('blur', () => {
-    inputfield.setAttribute('placeholder', 'Enter your location');
-});
-
-// Function to create a custom popup
 function createPopup(message) {
-    // Create popup container
-    const popup = document.createElement('div');
+    let popup = document.createElement('div');
     popup.classList.add('custom-popup');
     popup.innerHTML = `
         <div class="popup-content">
@@ -27,21 +22,17 @@ function createPopup(message) {
             <button class="close-popup">OK</button>
         </div>
     `;
-    
-    // Append to body
     document.body.appendChild(popup);
 
-    // Close button action
-    const closeButton = popup.querySelector('.close-popup');
+    let closeButton = popup.querySelector('.close-popup');
     closeButton.addEventListener('click', () => {
         document.body.removeChild(popup);
     });
 }
 
-// Fetch weather data on search click
 search.addEventListener('click', async () => {
     const APIKey = '2675a0482e5c8100dce84fc9f2ecfe88';
-    const city = inputfield.value.trim();
+    const city = inputField.value.trim();
 
     if (!city) {
         createPopup('Please enter a valid city name.');
@@ -58,14 +49,12 @@ search.addEventListener('click', async () => {
             }
         }
 
-        const json = await response.json();
-
-        const image = query('.weather-box img');
-        const temperature = query('.weather-box .temperature');
-        const description = query('.weather-box .description');
-        const humidity = query('.weather-details .humidity span');
-        const wind = query('.weather-details .wind span');
-
+        let json = await response.json();
+        const image = q('.weather-box .box .info-weather .weather img');
+        const temperature = q('.weather-box .box .info-weather .weather .temperature');
+        const description = q('.weather-box .box .info-weather .weather .description');
+        const humidity = q('.weather-details .humidity .text .info-humidity span');
+        const wind = q('.weather-details .wind .text .info-wind span');
         const weatherImages = {
             Clear: 'images/clear.png',
             Rain: 'images/rain.png',
@@ -82,16 +71,8 @@ search.addEventListener('click', async () => {
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
-        } else {
-            // Clear data if no weather information is available
-            image.src = 'images/404.png';
-            temperature.innerHTML = '';
-            description.innerHTML = 'Weather data not available';
-            humidity.innerHTML = '';
-            wind.innerHTML = '';
         }
     } catch (error) {
-        console.error('Error fetching weather data:', error.message);
-        createPopup(error.message); // Display custom popup with error message
+        createPopup(error.message);
     }
 });
