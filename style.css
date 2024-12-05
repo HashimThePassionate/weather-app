@@ -96,18 +96,23 @@ body {
 
 /* Weather Box Temperature */
 .weather-box .temperature {
-    position: relative;
+    display: inline-flex; /* Use inline-flex for better alignment */
+    align-items: baseline; /* Aligns text and span to the baseline */
+    justify-content: center; /* Centers the temperature content */
     font-size: 4rem;
     line-height: 1;
     font-weight: 700;
     margin: 10px auto;
+    position: relative;
 }
 
 /* Weather Box Temperature Span */
 .weather-box .temperature span {
-    font-size: 1.7rem;
-    position: absolute;
+    font-size: 1.5rem; /* Adjusted font size for "°C" */
+    margin-left: 5px; /* Adds space between the temperature and "°C" */
+    line-height: 1;
 }
+
 
 /* Weather Box Description */
 .weather-box .description {
@@ -127,7 +132,11 @@ body {
 }
 
 .weather-details .humidity,
-.weather-details .wind {
+.weather-details .wind,
+.weather-details .pressure,
+.weather-details .visibility,
+.weather-details .sunrise,
+.weather-details .sunset {
     display: flex;
     align-items: center;
     width: 48%;
@@ -146,6 +155,40 @@ body {
 }
 
 .weather-details p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Additional Weather Details Section */
+.additional-details {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.additional-details .pressure,
+.additional-details .visibility,
+.additional-details .sunrise,
+.additional-details .sunset {
+    display: flex;
+    align-items: center;
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.additional-details i {
+    font-size: 48px;
+    margin-right: 10px;
+}
+
+.additional-details span {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.additional-details p {
     font-size: 14px;
     font-weight: 500;
 }
@@ -218,20 +261,27 @@ body {
     }
 
     .weather-details .humidity,
-    .weather-details .wind {
+    .weather-details .wind,
+    .additional-details .pressure,
+    .additional-details .visibility,
+    .additional-details .sunrise,
+    .additional-details .sunset {
         width: 100%;
         justify-content: center;
     }
 
-    .weather-details i {
+    .weather-details i,
+    .additional-details i {
         font-size: 48px;
     }
 
-    .weather-details span {
+    .weather-details span,
+    .additional-details span {
         font-size: 20px;
     }
 
-    .weather-details p {
+    .weather-details p,
+    .additional-details p {
         font-size: 12px;
     }
 }
@@ -272,15 +322,18 @@ body {
         font-size: 1.2rem;
     }
 
-    .weather-details i {
+    .weather-details i,
+    .additional-details i {
         font-size: 40px;
     }
 
-    .weather-details span {
+    .weather-details span,
+    .additional-details span {
         font-size: 18px;
     }
 
-    .weather-details p {
+    .weather-details p,
+    .additional-details p {
         font-size: 10px;
     }
 }
