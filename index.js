@@ -5,6 +5,9 @@ let container = q('.container');
 let search = q('.search-box button');
 let weatherBox = q('.weather-box');
 let weatherDetails = q('.weather-details');
+let cityNameElement = id('city-name');
+let countryNameElement = id('country-name');
+let dateTimeElement = id('date-time');
 
 inputField.addEventListener('focus', () => {
     inputField.setAttribute('placeholder', '');
@@ -71,6 +74,13 @@ search.addEventListener('click', async () => {
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseFloat(json.wind.speed)}km/h`;
+
+            // Updating the new information section
+            cityNameElement.innerHTML = `City: ${json.name}`;
+            countryNameElement.innerHTML = `Country: ${json.sys.country}`;
+
+            const date = new Date();
+            dateTimeElement.innerHTML = `Date & Time: ${date.toLocaleString()}`;
         }
     } catch (error) {
         createPopup(error.message);

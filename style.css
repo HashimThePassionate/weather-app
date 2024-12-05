@@ -150,6 +150,18 @@ body {
     font-weight: 500;
 }
 
+/* City Info Section */
+.city-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.city-info p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color);
+}
+
 /* Custom Popup Style */
 .custom-popup {
     position: fixed;
@@ -234,6 +246,10 @@ body {
     .weather-details p {
         font-size: 12px;
     }
+
+    .city-info p {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -282,5 +298,9 @@ body {
 
     .weather-details p {
         font-size: 10px;
+    }
+
+    .city-info p {
+        font-size: 0.9rem;
     }
 }
