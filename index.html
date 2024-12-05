@@ -11,9 +11,9 @@
     <title>Weather</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <!-- Search Box Section -->
-    <div class="search-box">
+        <div class="search-box">
             <!-- Icon for search box -->
             <i class='bx bx-world'></i>
             <!-- Input field for location -->
@@ -23,10 +23,10 @@
             </button>
     
     <!-- Search Box Div Ended -->
-    </div>
+        </div>
 
     <!-- Weather Box Section -->
-    <div class="weather-box">
+        <div class="weather-box">
             <div class="box">
                 <!-- Weather Information Section -->
                 <div class="info-weather">
@@ -34,10 +34,10 @@
                         <!-- Weather icon -->
                         <img src="images/cloud.png">
                         <!-- Temperature display -->
-                        <p class="temperature">0<span>°C</span></p>
+                <p class="temperature">0<span>°C</span></p>
                         <!-- Weather description -->
                         <p class="description">Broken Clouds</p>
-                    </div>
+            </div>
                 <!-- Weather Information Section ended-->
                 </div>
 
@@ -60,23 +60,24 @@
                     <!-- Wind Speed Information -->
                     <div class="wind">
                         <!-- Wind speed icon -->
-                        <i class='bx bx-wind'></i>
-                        <div class="text">
-                            <div class="info-wind">
-                                <!-- Wind speed value -->
-                                <span>0km/h</span>
-                            </div>
-                            <!-- Label for wind speed -->
-                            <p>Wind Speed</p>
-                        </div>
-                    </div>
+                    <i class='bx bx-wind'></i>
+                    <p>Wind Speed: <span class="wind-speed">0 km/h</span></p>
+                </div>
+                <div class="info-item">
+                    <i class='bx bx-sun'></i>
+                    <p>Sunrise: <span class="sunrise-time">6:00 AM</span></p>
+                </div>
+                <div class="info-item">
+                    <i class='bx bx-moon'></i>
+                    <p>Sunset: <span class="sunset-time">6:00 PM</span></p>
+                </div>
+                <div class="info-item">
+                    <i class='bx bx-bar-chart'></i>
+                    <p>Pressure: <span class="pressure">1013 hPa</span></p>
                 </div>
             </div>
-
-        <!-- Weather Box section ended -->
         </div>
-<!-- container div ended -->
-</div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
