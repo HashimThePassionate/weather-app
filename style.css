@@ -149,6 +149,104 @@ body {
     font-size: 14px;
     font-weight: 500;
 }
+/* General Styling for the Additional Info Section */
+.weather-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.weather-details .info {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+
+.weather-details .info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.weather-details .info i {
+    font-size: 36px;
+    color: #1e90ff;
+}
+
+.weather-details .info .text {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.weather-details .info .text span {
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+}
+
+.weather-details .info .text p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Styling for the Sunrise and Sunset Section */
+.sunrise-sunset {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.sunrise-sunset .sunrise, .sunrise-sunset .sunset {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+
+.sunrise-sunset .sunrise:hover, .sunrise-sunset .sunset:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.sunrise-sunset i {
+    font-size: 36px;
+    color: var(--bg-color); /* A nice sunset color */
+}
+
+.sunrise-sunset .text {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.sunrise-sunset .text span {
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+}
+
+.sunrise-sunset .text p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-top: 5px;
+}
+
 
 /* Custom Popup Style */
 .custom-popup {
