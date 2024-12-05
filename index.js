@@ -76,3 +76,62 @@ search.addEventListener('click', async () => {
         createPopup(error.message);
     }
 });
+
+
+
+search.addEventListener('click', async () => {
+    const APIKey = '2675a0482e5c8100dce84fc9f2ecfe88';
+    const city = inputField.value.trim();
+
+    if (!city) {
+        createPopup('Please enter a valid city name.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`);
+        if (!response.ok) {
+            if (response.status === 404) {
+                throw new Error('City not found. Please try again.');
+            } else {
+                throw new Error('Failed to fetch weather data. Try again later.');
+            }
+        }
+
+        let json = await response.json();
+
+        // Basic weather details
+        const image = q('.weather-box .box .info-weather .weather img');
+        const temperature = q('.weather-box .box .info-weather .weather .temperature');
+        const description = q('.weather-box .box .info-weather .weather .description');
+        const humidity = q('.weather-details .humidity .text .info-humidity span');
+        const wind = q('.weather-details .wind .text .info-wind span');
+        const weatherImages = {
+            Clear: 'images/clear.png',
+            Rain: 'images/rain.png',
+            Clouds: 'images/cloud.png',
+            Snow: 'images/snow.png',
+            Mist: 'images/mist.png',
+            Haze: 'images/mist.png'
+        };
+
+        if (json.weather && json.weather[0]) {
+            const weatherMain = json.weather[0].main;
+            image.src = weatherImages[weatherMain] || 'images/cloud.png';
+            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
+            description.innerHTML = `${json.weather[0].description}`;
+            humidity.innerHTML = `${json.main.humidity}%`;
+            wind.innerHTML = `${parseFloat(json.wind.speed)}km/h`;
+        }
+
+        // Extended weather details
+        id('pressure').textContent = `${json.main.pressure} hPa`;
+        id('visibility').textContent = `${(json.visibility / 1000).toFixed(1)} km`;
+        id('feels-like').textContent = `${Math.round(json.main.feels_like)}°C`;
+        id('max-temp').textContent = `${Math.round(json.main.temp_max)}°C`;
+        id('min-temp').textContent = `${Math.round(json.main.temp_min)}°C`;
+
+    } catch (error) {
+        createPopup(error.message);
+    }
+});
