@@ -3,81 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Weather</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Weather App</title>
 </head>
 <body>
-    <div class="container">
-        <!-- Search Box Section -->
-        <div class="search-box">
-            <!-- Icon for search box -->
-            <i class='bx bx-world'></i>
-            <!-- Input field for location -->
-            <input type="text" placeholder="Enter your location"  id="location">
-            <!-- Search button -->
-            <button class='bx bx-search-alt'>
-            </button>
-    
-    <!-- Search Box Div Ended -->
-        </div>
-
-    <!-- Weather Box Section -->
-        <div class="weather-box">
-            <div class="box">
-                <!-- Weather Information Section -->
-                <div class="info-weather">
-                    <div class="weather">
-                        <!-- Weather icon -->
-                        <img src="images/cloud.png">
-                        <!-- Temperature display -->
-                <p class="temperature">0<span>°C</span></p>
-                        <!-- Weather description -->
-                        <p class="description">Broken Clouds</p>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header>
+            <h1>Weather App</h1>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for a city...">
+                <button id="search-btn"><i class='bx bx-search-alt'></i></button>
             </div>
-                <!-- Weather Information Section ended-->
-                </div>
+        </header>
 
-                <!-- Weather Details Section -->
+        <!-- Weather Card -->
+        <main>
+            <div class="weather-card">
+                <img id="weather-icon" src="images/cloud.png" alt="Weather Icon">
+                <h2 id="city-name">City Name</h2>
+                <p id="temperature">0°C</p>
+                <p id="weather-description">Weather Description</p>
                 <div class="weather-details">
-                    <!-- Humidity Information -->
-                    <div class="humidity">
-                        <!-- Humidity icon -->
-                        <i class='bx bx-water'></i>
-                        <div class="text">
-                            <div class="info-humidity">
-                                <!-- Humidity value -->
-                                <span>0%</span>
-                            </div>
-                            <!-- Label for humidity -->
-                            <p>Humidity</p>
-                        </div>
+                    <div class="detail">
+                        <i class='bx bx-droplet'></i>
+                        <p>Humidity</p>
+                        <span id="humidity">0%</span>
                     </div>
-
-                    <!-- Wind Speed Information -->
-                    <div class="wind">
-                        <!-- Wind speed icon -->
-                    <i class='bx bx-wind'></i>
-                    <p>Wind Speed: <span class="wind-speed">0 km/h</span></p>
-                </div>
-                <div class="info-item">
-                    <i class='bx bx-sun'></i>
-                    <p>Sunrise: <span class="sunrise-time">6:00 AM</span></p>
-                </div>
-                <div class="info-item">
-                    <i class='bx bx-moon'></i>
-                    <p>Sunset: <span class="sunset-time">6:00 PM</span></p>
-                </div>
-                <div class="info-item">
-                    <i class='bx bx-bar-chart'></i>
-                    <p>Pressure: <span class="pressure">1013 hPa</span></p>
+                    <div class="detail">
+                        <i class='bx bx-wind'></i>
+                        <p>Wind Speed</p>
+                        <span id="wind-speed">0 km/h</span>
+                    </div>
+                    <div class="detail">
+                        <i class='bx bx-sun'></i>
+                        <p>Sunrise</p>
+                        <span id="sunrise">00:00</span>
+                    </div>
+                    <div class="detail">
+                        <i class='bx bx-moon'></i>
+                        <p>Sunset</p>
+                        <span id="sunset">00:00</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
-    <script src="index.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
