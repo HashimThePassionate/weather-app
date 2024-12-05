@@ -284,3 +284,40 @@ body {
         font-size: 10px;
     }
 }
+
+/* Extended Weather Details */
+.extended-weather {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.extended-weather h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-light);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.details-grid .detail {
+    text-align: center;
+}
+
+.details-grid .detail p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--color);
+}
+
+.details-grid .detail span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-light);
+}
