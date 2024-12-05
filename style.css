@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;900&display=swap');
 
-/* Default Configurations */
 * {
     padding: 0;
     margin: 0;
@@ -10,36 +9,30 @@
     --color-light: beige;
 }
 
-/* Body Style */
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Changed from height to min-height */
+    min-height: 100vh;
     background-image: url('./images/bg.jpg');
     background-size: cover;
     background-position: center;
 }
 
-/* Container Style */
 .container {
     background-color: var(--bg-color);
     width: 500px;
-    max-width: 90%; /* Added max-width for responsiveness */
-    height: auto; /* Changed from fixed height */
-    position: relative;
+    max-width: 90%;
     border-radius: 30px;
-    padding: 50px 30px; /* Adjusted padding */
+    padding: 50px 30px;
     color: var(--color);
 }
 
-/* Search Box Style */
 .search-box {
     position: relative;
     width: 100%;
     height: 55px;
-    background-color: transparent;
     border: 2px solid var(--color);
     border-radius: 15px;
     display: flex;
@@ -63,13 +56,7 @@ body {
     font-size: 1.25rem;
     text-align: center;
     text-transform: uppercase;
-    padding: 0 50px; /* Added padding to prevent text overlap with icon and button */
-}
-
-.search-box input::placeholder {
-    color: var(--color);
-    font-weight: 400;
-    font-size: 1rem; /* Adjusted font size */
+    padding: 0 50px;
 }
 
 .search-box button {
@@ -82,205 +69,60 @@ body {
     cursor: pointer;
 }
 
-/* Weather Box Section */
 .weather-box {
     text-align: center;
     margin: 40px 0;
 }
 
-/* Weather Box Image */
 .weather-box img {
     width: 50%;
-    max-width: 150px; /* Added max-width for responsiveness */
+    max-width: 150px;
 }
 
-/* Weather Box Temperature */
 .weather-box .temperature {
-    position: relative;
     font-size: 4rem;
-    line-height: 1;
-    font-weight: 700;
     margin: 10px auto;
 }
 
-/* Weather Box Temperature Span */
-.weather-box .temperature span {
-    font-size: 1.7rem;
-    position: absolute;
-}
-
-/* Weather Box Description */
 .weather-box .description {
     font-size: 1.7rem;
     text-transform: capitalize;
-    font-weight: 500;
 }
 
-/* Weather Details Section */
-.weather-details {
+.weather-details, .additional-weather {
     width: 100%;
-    padding: 0 20px;
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.weather-details .humidity,
-.weather-details .wind {
+.weather-details div, .additional-weather div {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
     width: 48%;
-    margin-bottom: 20px;
+    flex-direction: column; /* Stack icon, value, and label vertically */
+    text-align: center; /* Center-align content horizontally */
 }
 
-.weather-details i {
+.weather-details i, .additional-weather i {
     font-size: 56px;
-    margin-right: 10px;
+    margin-bottom: 10px; /* Add space below the icon */
 }
 
-.weather-details span {
-    display: inline-block;
+.weather-details .text, .additional-weather .text {
+    display: flex;
+    flex-direction: column; /* Stack value and label */
+    align-items: center; /* Center align the content */
+}
+
+.weather-details span, .additional-weather span {
     font-size: 22px;
     font-weight: 500;
+    margin-bottom: 5px; /* Add spacing below the value */
 }
 
-.weather-details p {
+.weather-details p, .additional-weather p {
     font-size: 14px;
     font-weight: 500;
-}
-
-/* Custom Popup Style */
-.custom-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.popup-content {
-    background: var(--bg-color);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    color: var(--color);
-    width: 90%;
-    max-width: 400px;
-}
-
-.close-popup {
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    background-color: var(--color);
-    color: var(--bg-color);
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 40px 20px;
-    }
-
-    .search-box input {
-        font-size: 1.1rem;
-        padding: 0 40px; /* Reduced padding for smaller screens */
-    }
-
-    .search-box input::placeholder {
-        font-size: 0.9rem; /* Reduced placeholder font size */
-    }
-
-    .search-box i,
-    .search-box button {
-        font-size: 1.4rem;
-    }
-
-    .weather-box .temperature {
-        font-size: 3rem;
-    }
-
-    .weather-box .temperature span {
-        font-size: 1.4rem;
-    }
-
-    .weather-box .description {
-        font-size: 1.4rem;
-    }
-
-    .weather-details .humidity,
-    .weather-details .wind {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .weather-details i {
-        font-size: 48px;
-    }
-
-    .weather-details span {
-        font-size: 20px;
-    }
-
-    .weather-details p {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .search-box {
-        height: 45px;
-    }
-
-    .search-box i,
-    .search-box button {
-        font-size: 1.2rem;
-    }
-
-    .search-box input {
-        font-size: 0.9rem;
-        padding: 0 30px; /* Further reduced padding */
-    }
-
-    .search-box input::placeholder {
-        font-size: 0.8rem; /* Further reduced placeholder font size */
-    }
-
-    .weather-box img {
-        width: 40%;
-        max-width: 120px;
-    }
-
-    .weather-box .temperature {
-        font-size: 2.5rem;
-    }
-
-    .weather-box .temperature span {
-        font-size: 1.2rem;
-    }
-
-    .weather-box .description {
-        font-size: 1.2rem;
-    }
-
-    .weather-details i {
-        font-size: 40px;
-    }
-
-    .weather-details span {
-        font-size: 18px;
-    }
-
-    .weather-details p {
-        font-size: 10px;
-    }
+    margin: 0; /* Remove extra margin around labels */
 }

@@ -1,17 +1,8 @@
 let id = id => document.getElementById(id);
 let q = q => document.querySelector(q);
-let inputField = id('location');
-let container = q('.container');
-let search = q('.search-box button');
-let weatherBox = q('.weather-box');
-let weatherDetails = q('.weather-details');
 
-inputField.addEventListener('focus', () => {
-    inputField.setAttribute('placeholder', '');
-});
-inputField.addEventListener('blur', () => {
-    inputField.setAttribute('placeholder', 'Enter your location');
-});
+let inputField = id('location');
+let search = q('.search-box button');
 
 function createPopup(message) {
     let popup = document.createElement('div');
@@ -23,9 +14,7 @@ function createPopup(message) {
         </div>
     `;
     document.body.appendChild(popup);
-
-    let closeButton = popup.querySelector('.close-popup');
-    closeButton.addEventListener('click', () => {
+    popup.querySelector('.close-popup').addEventListener('click', () => {
         document.body.removeChild(popup);
     });
 }
@@ -42,36 +31,17 @@ search.addEventListener('click', async () => {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`);
         if (!response.ok) {
-            if (response.status === 404) {
-                throw new Error('City not found. Please try again.');
-            } else {
-                throw new Error('Failed to fetch weather data. Try again later.');
-            }
+            throw new Error(response.status === 404 ? 'City not found.' : 'Failed to fetch data.');
         }
 
         let json = await response.json();
-        const image = q('.weather-box .box .info-weather .weather img');
-        const temperature = q('.weather-box .box .info-weather .weather .temperature');
-        const description = q('.weather-box .box .info-weather .weather .description');
-        const humidity = q('.weather-details .humidity .text .info-humidity span');
-        const wind = q('.weather-details .wind .text .info-wind span');
-        const weatherImages = {
-            Clear: 'images/clear.png',
-            Rain: 'images/rain.png',
-            Clouds: 'images/cloud.png',
-            Snow: 'images/snow.png',
-            Mist: 'images/mist.png',
-            Haze: 'images/mist.png'
-        };
-
-        if (json.weather && json.weather[0]) {
-            const weatherMain = json.weather[0].main;
-            image.src = weatherImages[weatherMain] || 'images/cloud.png'; // Fallback image
-            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
-            description.innerHTML = `${json.weather[0].description}`;
-            humidity.innerHTML = `${json.main.humidity}%`;
-            wind.innerHTML = `${parseFloat(json.wind.speed)}km/h`;
-        }
+        q('.weather-box img').src = `images/${json.weather[0].main.toLowerCase()}.png`;
+        q('.temperature').innerHTML = `${Math.round(json.main.temp)}<span>°C</span>`;
+        q('.description').textContent = json.weather[0].description;
+        q('.info-humidity span').textContent = `${json.main.humidity}%`;
+        q('.info-wind span').textContent = `${Math.round(json.wind.speed)}km/h`;
+        q('.info-visibility span').textContent = `${json.visibility}m`;
+        q('.info-feels-like span').textContent = `${Math.round(json.main.feels_like)}°C`;
     } catch (error) {
         createPopup(error.message);
     }
