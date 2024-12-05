@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <title>Weather</title>
@@ -75,6 +75,34 @@
 
         <!-- Weather Box section ended -->
         </div>
+
+        <!-- Extended Weather Details Section -->
+        <div class="extended-weather">
+            <h3>Extended Weather Details</h3>
+            <div class="details-grid">
+                <div class="detail">
+                    <p>Pressure</p>
+                    <span id="pressure">0 hPa</span>
+                </div>
+                <div class="detail">
+                    <p>Visibility</p>
+                    <span id="visibility">0 km</span>
+                </div>
+                <div class="detail">
+                    <p>Feels Like</p>
+                    <span id="feels-like">0°C</span>
+                </div>
+                <div class="detail">
+                    <p>Max Temp</p>
+                    <span id="max-temp">0°C</span>
+                </div>
+                <div class="detail">
+                    <p>Min Temp</p>
+                    <span id="min-temp">0°C</span>
+                </div>
+            </div>
+        </div>
+
 <!-- container div ended -->
 </div>
     <script src="index.js"></script>
