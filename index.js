@@ -1,10 +1,10 @@
 let id = id => document.getElementById(id);
 let q = q => document.querySelector(q);
 let inputField = id('location');
-let container = q('.container');
 let search = q('.search-box button');
 let weatherBox = q('.weather-box');
 let weatherDetails = q('.weather-details');
+let additionalDetails = q('.additional-details');
 
 inputField.addEventListener('focus', () => {
     inputField.setAttribute('placeholder', '');
@@ -55,6 +55,13 @@ search.addEventListener('click', async () => {
         const description = q('.weather-box .box .info-weather .weather .description');
         const humidity = q('.weather-details .humidity .text .info-humidity span');
         const wind = q('.weather-details .wind .text .info-wind span');
+
+        // Additional Weather Details
+        const sunrise = q('#sunrise');
+        const sunset = q('#sunset');
+        const pressure = q('#pressure');
+        const visibility = q('#visibility');
+
         const weatherImages = {
             Clear: 'images/clear.png',
             Rain: 'images/rain.png',
@@ -71,6 +78,17 @@ search.addEventListener('click', async () => {
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseFloat(json.wind.speed)}km/h`;
+
+            // Additional weather data
+            const sunriseTime = new Date(json.sys.sunrise * 1000).toLocaleTimeString();
+            const sunsetTime = new Date(json.sys.sunset * 1000).toLocaleTimeString();
+            const pressureValue = `${json.main.pressure} hPa`;
+            const visibilityValue = `${(json.visibility / 1000).toFixed(1)} km`;
+
+            sunrise.innerHTML = sunriseTime;
+            sunset.innerHTML = sunsetTime;
+            pressure.innerHTML = pressureValue;
+            visibility.innerHTML = visibilityValue;
         }
     } catch (error) {
         createPopup(error.message);
