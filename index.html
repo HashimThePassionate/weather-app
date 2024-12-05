@@ -3,80 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <title>Weather</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <!-- Search Box Section -->
-    <div class="search-box">
-            <!-- Icon for search box -->
-            <i class='bx bx-world'></i>
-            <!-- Input field for location -->
-            <input type="text" placeholder="Enter your location"  id="location">
-            <!-- Search button -->
-            <button class='bx bx-search-alt'>
-            </button>
-    
-    <!-- Search Box Div Ended -->
-    </div>
+        <div class="search-box">
+            <i class="bx bx-world"></i>
+            <input type="text" placeholder="Enter your location" id="location">
+            <button class="search-btn">Search</button>
+        </div>
 
-    <!-- Weather Box Section -->
-    <div class="weather-box">
+        <!-- Weather Box Section -->
+        <div class="weather-box">
             <div class="box">
-                <!-- Weather Information Section -->
                 <div class="info-weather">
                     <div class="weather">
-                        <!-- Weather icon -->
-                        <img src="images/cloud.png">
-                        <!-- Temperature display -->
-                        <p class="temperature">0<span>°C</span></p>
-                        <!-- Weather description -->
+                        <img src="images/cloud.png" id="weather-icon">
+                        <p class="temperature">0°C</p>
                         <p class="description">Broken Clouds</p>
                     </div>
-                <!-- Weather Information Section ended-->
                 </div>
 
                 <!-- Weather Details Section -->
                 <div class="weather-details">
-                    <!-- Humidity Information -->
                     <div class="humidity">
-                        <!-- Humidity icon -->
-                        <i class='bx bx-water'></i>
-                        <div class="text">
-                            <div class="info-humidity">
-                                <!-- Humidity value -->
-                                <span>0%</span>
-                            </div>
-                            <!-- Label for humidity -->
-                            <p>Humidity</p>
-                        </div>
+                        <i class="bx bx-water"></i>
+                        <span id="humidity">0%</span>
+                        <p>Humidity</p>
                     </div>
-
-                    <!-- Wind Speed Information -->
                     <div class="wind">
-                        <!-- Wind speed icon -->
-                        <i class='bx bx-wind'></i>
-                        <div class="text">
-                            <div class="info-wind">
-                                <!-- Wind speed value -->
-                                <span>0km/h</span>
-                            </div>
-                            <!-- Label for wind speed -->
-                            <p>Wind Speed</p>
-                        </div>
+                        <i class="bx bx-wind"></i>
+                        <span id="wind-speed">0km/h</span>
+                        <p>Wind Speed</p>
+                    </div>
+                    <div class="feels-like">
+                        <i class="bx bx-thermometer"></i>
+                        <span id="feels-like">0°C</span>
+                        <p>Feels Like</p>
+                    </div>
+                    <div class="pressure">
+                        <i class="bx bx-bar-chart"></i>
+                        <span id="pressure">0hPa</span>
+                        <p>Pressure</p>
+                    </div>
+                    <div class="sunrise">
+                        <i class="bx bx-sun"></i>
+                        <span id="sunrise">06:00 AM</span>
+                        <p>Sunrise</p>
+                    </div>
+                    <div class="sunset">
+                        <i class="bx bx-sunset"></i>
+                        <span id="sunset">06:00 PM</span>
+                        <p>Sunset</p>
                     </div>
                 </div>
             </div>
-
-        <!-- Weather Box section ended -->
         </div>
-<!-- container div ended -->
-</div>
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>
