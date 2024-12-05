@@ -55,6 +55,10 @@ search.addEventListener('click', async () => {
         const description = q('.weather-box .box .info-weather .weather .description');
         const humidity = q('.weather-details .humidity .text .info-humidity span');
         const wind = q('.weather-details .wind .text .info-wind span');
+        const pressure = q('.weather-details .pressure .text .info-pressure span');
+        const visibility = q('.weather-details .visibility .text .info-visibility span');
+        const sunrise = q('.sunrise-sunset .sunrise .text span');
+        const sunset = q('.sunrise-sunset .sunset .text span');
         const weatherImages = {
             Clear: 'images/clear.png',
             Rain: 'images/rain.png',
@@ -71,7 +75,14 @@ search.addEventListener('click', async () => {
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseFloat(json.wind.speed)}km/h`;
+            pressure.innerHTML = `${json.main.pressure} hPa`;
+            visibility.innerHTML = `${(json.visibility / 1000).toFixed(1)} km`; // Convert visibility to km
+            sunrise.innerHTML = new Date(json.sys.sunrise * 1000).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+            sunset.innerHTML = new Date(json.sys.sunset * 1000).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
         }
+
+        weatherBox.style.display = 'block';
+        container.style.paddingTop = '60px';
     } catch (error) {
         createPopup(error.message);
     }
