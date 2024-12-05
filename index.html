@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <!-- Fonts and Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>Weather</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <!-- Search Box Section -->
-    <div class="search-box">
+        <div class="search-box">
             <!-- Icon for search box -->
             <i class='bx bx-world'></i>
             <!-- Input field for location -->
-            <input type="text" placeholder="Enter your location"  id="location">
+            <input type="text" placeholder="Enter your location" id="location">
             <!-- Search button -->
-            <button class='bx bx-search-alt'>
-            </button>
-    
-    <!-- Search Box Div Ended -->
-    </div>
+            <button class='bx bx-search-alt'></button>
+        </div>
 
-    <!-- Weather Box Section -->
-    <div class="weather-box">
+        <!-- Weather Box Section -->
+        <div class="weather-box">
             <div class="box">
                 <!-- Weather Information Section -->
                 <div class="info-weather">
                     <div class="weather">
                         <!-- Weather icon -->
-                        <img src="images/cloud.png">
+                        <img src="images/cloud.png" alt="Weather Icon">
                         <!-- Temperature display -->
                         <p class="temperature">0<span>°C</span></p>
                         <!-- Weather description -->
                         <p class="description">Broken Clouds</p>
                     </div>
-                <!-- Weather Information Section ended-->
                 </div>
 
                 <!-- Weather Details Section -->
@@ -70,13 +68,68 @@
                             <p>Wind Speed</p>
                         </div>
                     </div>
+
+                    <!-- Additional Weather Details -->
+                    <div class="additional-details">
+                        <!-- Pressure Information -->
+                        <div class="pressure">
+                            <i class='bx bx-bar-chart-alt-2'></i>
+                            <div class="text">
+                                <div class="info-pressure">
+                                    <span>0 hPa</span>
+                                </div>
+                                <p>Pressure</p>
+                            </div>
+                        </div>
+
+                        <!-- Visibility Information -->
+                        <div class="visibility">
+                            <i class='bx bx-show'></i>
+                            <div class="text">
+                                <div class="info-visibility">
+                                    <span>0 km</span>
+                                </div>
+                                <p>Visibility</p>
+                            </div>
+                        </div>
+
+                        <!-- Sunrise Information -->
+                        <div class="sunrise">
+                            <i class='bx bx-sun'></i>
+                            <div class="text">
+                                <div class="info-sunrise">
+                                    <span>--:--</span>
+                                </div>
+                                <p>Sunrise</p>
+                            </div>
+                        </div>
+
+                        <!-- Sunset Information -->
+                        <div class="sunset">
+                            <i class='bx bx-moon'></i>
+                            <div class="text">
+                                <div class="info-sunset">
+                                    <span>--:--</span>
+                                </div>
+                                <p>Sunset</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Weather Details Ended -->
                 </div>
             </div>
-
-        <!-- Weather Box section ended -->
         </div>
-<!-- container div ended -->
-</div>
+        <!-- Weather Box section ended -->
+    </div>
+    <!-- Container div ended -->
+    <!-- Custom Popup -->
+    <div class="custom-popup" style="display: none;">
+        <div class="popup-content">
+            <p id="popup-message">Sample Message</p>
+            <button class="close-popup">OK</button>
+        </div>
+    </div>
+    <!-- JavaScript -->
     <script src="index.js"></script>
 </body>
 </html>
