@@ -8,7 +8,38 @@
     --bg-color: #87CEEB;
     --color: #fff;
     --color-light: beige;
+}.air-quality {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.air-quality .text {
+    margin-left: 10px;
+}
+
+.air-quality i {
+    font-size: 40px;
+    color: #4CAF50;
+}
+
+.air-quality .info-aqi span,
+.air-quality .info-pollutant span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.air-quality p {
+    font-size: 14px;
+    color: #555;
+}
+
+
 
 /* Body Style */
 body {
