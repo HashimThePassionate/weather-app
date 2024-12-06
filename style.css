@@ -7,7 +7,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to top, #1e3c72, #2a5298);
+    background-image: url(./images/bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: left top;
     color: white;
 }
 
@@ -15,7 +18,7 @@ body {
 .container {
     width: 100%;
     max-width: 1000px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(86, 177, 216) ;
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     padding: 20px;
@@ -31,13 +34,13 @@ body {
 }
 
 .search-box input {
-    padding: 12px 20px;
+    padding: 15px;
     width: 80%;
     border-radius: 30px;
     border: 2px solid #ffffff;
     outline: none;
     font-size: 1.1em;
-    color: #333;
+    color: #2a292c;
     background: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
 }
@@ -49,7 +52,7 @@ body {
 }
 
 .search-box button {
-    padding: 12px 20px;
+    padding: 12px;
     background-color: #007bff;
     color: white;
     border: none;
