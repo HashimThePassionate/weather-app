@@ -91,13 +91,13 @@ body {
 /* Weather Box Image */
 .weather-box img {
     width: 50%;
-    max-width: 150px; /* Added max-width for responsiveness */
+    max-width: 130px; /* Added max-width for responsiveness */
 }
 
 /* Weather Box Temperature */
 .weather-box .temperature {
     display: inline-flex; /* Use inline-flex for better alignment */
-    align-items: baseline; /* Aligns text and span to the baseline */
+    align-items: start; /* Aligns text and span to the baseline */
     justify-content: center; /* Centers the temperature content */
     font-size: 4rem;
     line-height: 1;
@@ -139,6 +139,7 @@ body {
 .weather-details .sunset {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 48%;
     margin-bottom: 20px;
 }
@@ -150,7 +151,7 @@ body {
 
 .weather-details span {
     display: inline-block;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
 }
 
